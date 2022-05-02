@@ -13,7 +13,7 @@ namespace DBLab {
     private string location;
     private string photo;
 
-    SpaceObject(int id) {
+    public SpaceObject (int id) {
       this.id = id;
     }
     public int Id {
