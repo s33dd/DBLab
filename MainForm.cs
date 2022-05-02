@@ -21,6 +21,15 @@ namespace DBLab {
         AboutForm about = new AboutForm();
         about.ShowDialog();
       }
+      using (var db = new SqliteConnection(dbRoute)) {
+        try {
+          db.Open();
+        }
+        catch {
+          MessageBox.Show("Database not found. Please, check all files.", "Error!");
+          Close();
+        }
+      }
     }
   }
 }
