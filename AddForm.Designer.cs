@@ -173,6 +173,7 @@
       this.Controls.Add(this.PhotoPath);
       this.Controls.Add(this.PhotoBtn);
       this.Controls.Add(this.PhotoLabel);
+      this.MaximizeBox = false;
       this.Name = "AddForm";
       this.Text = "Add object";
       this.ResumeLayout(false);
