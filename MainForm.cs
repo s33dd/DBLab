@@ -20,6 +20,7 @@ namespace DBLab {
     }
 
     private void LoadObjects() {
+      objects.Clear();
       using (var db = new SqliteConnection(dbRoute)) {
         try {
           db.Open();
@@ -51,6 +52,8 @@ namespace DBLab {
     }
 
     private void ShowObjects() {
+      ObjectList.Controls.Clear();
+      ObjectList.RowStyles.Clear();
       foreach (SpaceObject obj in objects) {
         if (ObjectList.RowCount < objects.Count) {
           ObjectList.RowCount = ObjectList.RowCount + 1;
@@ -101,6 +104,11 @@ namespace DBLab {
     private void AddObjectToolStripMenuItem_Click(object sender, EventArgs e) {
       AddForm form = new AddForm();
       form.ShowDialog();
+    }
+
+    private void RefreshToolStripMenuItem_Click(object sender, EventArgs e) {
+      LoadObjects();
+      ShowObjects();
     }
   }
 }

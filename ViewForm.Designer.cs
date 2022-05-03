@@ -126,6 +126,7 @@
       this.DeleteBtn.TabIndex = 8;
       this.DeleteBtn.Text = "Delete";
       this.DeleteBtn.UseVisualStyleBackColor = true;
+      this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
       // 
       // EditBtn
       // 
@@ -136,6 +137,7 @@
       this.EditBtn.TabIndex = 9;
       this.EditBtn.Text = "Edit";
       this.EditBtn.UseVisualStyleBackColor = true;
+      this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
       // 
       // ViewForm
       // 

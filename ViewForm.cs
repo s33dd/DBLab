@@ -33,5 +33,24 @@ namespace DBLab {
     private void ViewForm_FormClosed(object sender, FormClosedEventArgs e) {
       Properties.Settings.Default.ClickedId = -1;
     }
+
+    private void DeleteBtn_Click(object sender, EventArgs e) {
+      int id = Properties.Settings.Default.ClickedId;
+      string query = $"DELETE FROM `Object` WHERE id = {id}";
+      using (var db = new SqliteConnection(dbRoute)) {
+        db.Open();
+        SqliteCommand command = new SqliteCommand();
+        command.Connection = db;
+        command.CommandText = query;
+        command.ExecuteNonQuery();
+      }
+      MessageBox.Show("Object is deleted, Refresh table to see this.", "Success!");
+      Close();
+    }
+
+    private void EditBtn_Click(object sender, EventArgs e) {
+      EditForm form = new EditForm();
+      form.ShowDialog();
+    }
   }
 }

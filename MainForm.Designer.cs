@@ -27,9 +27,9 @@
       this.BaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.AddObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.SaveListOfObjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.ObjectList = new System.Windows.Forms.TableLayoutPanel();
-      this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.MenuStrip.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -41,7 +41,7 @@
             this.AboutToolStripMenuItem});
       this.MenuStrip.Location = new System.Drawing.Point(0, 0);
       this.MenuStrip.Name = "MenuStrip";
-      this.MenuStrip.Size = new System.Drawing.Size(800, 24);
+      this.MenuStrip.Size = new System.Drawing.Size(945, 24);
       this.MenuStrip.TabIndex = 0;
       // 
       // BaseToolStripMenuItem
@@ -67,6 +67,13 @@
       this.SaveListOfObjectsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.SaveListOfObjectsToolStripMenuItem.Text = "Save list of objects";
       // 
+      // RefreshToolStripMenuItem
+      // 
+      this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
+      this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.RefreshToolStripMenuItem.Text = "Refresh table";
+      this.RefreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
+      // 
       // AboutToolStripMenuItem
       // 
       this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
@@ -76,7 +83,6 @@
       // 
       // ObjectList
       // 
-      this.ObjectList.AutoScroll = true;
       this.ObjectList.AutoSize = true;
       this.ObjectList.ColumnCount = 3;
       this.ObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
@@ -86,23 +92,17 @@
       this.ObjectList.Name = "ObjectList";
       this.ObjectList.RowCount = 1;
       this.ObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-      this.ObjectList.Size = new System.Drawing.Size(756, 200);
+      this.ObjectList.Size = new System.Drawing.Size(886, 200);
       this.ObjectList.TabIndex = 1;
-      // 
-      // RefreshToolStripMenuItem
-      // 
-      this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
-      this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-      this.RefreshToolStripMenuItem.Text = "Refresh table";
       // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.AutoScroll = true;
-      this.AutoScrollMinSize = new System.Drawing.Size(0, 489);
+      this.AutoScrollMinSize = new System.Drawing.Size(0, 480);
       this.BackColor = System.Drawing.SystemColors.HighlightText;
-      this.ClientSize = new System.Drawing.Size(800, 494);
+      this.ClientSize = new System.Drawing.Size(945, 494);
       this.Controls.Add(this.ObjectList);
       this.Controls.Add(this.MenuStrip);
       this.MainMenuStrip = this.MenuStrip;
