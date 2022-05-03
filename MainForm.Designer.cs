@@ -41,7 +41,7 @@
             this.AboutToolStripMenuItem});
       this.MenuStrip.Location = new System.Drawing.Point(0, 0);
       this.MenuStrip.Name = "MenuStrip";
-      this.MenuStrip.Size = new System.Drawing.Size(783, 24);
+      this.MenuStrip.Size = new System.Drawing.Size(800, 24);
       this.MenuStrip.TabIndex = 0;
       // 
       // BaseToolStripMenuItem
@@ -79,14 +79,14 @@
       this.ObjectList.AutoScroll = true;
       this.ObjectList.AutoSize = true;
       this.ObjectList.ColumnCount = 3;
-      this.ObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-      this.ObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-      this.ObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+      this.ObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+      this.ObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.ObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.ObjectList.Location = new System.Drawing.Point(12, 27);
       this.ObjectList.Name = "ObjectList";
       this.ObjectList.RowCount = 1;
-      this.ObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.ObjectList.Size = new System.Drawing.Size(764, 41);
+      this.ObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+      this.ObjectList.Size = new System.Drawing.Size(756, 200);
       this.ObjectList.TabIndex = 1;
       // 
       // RefreshToolStripMenuItem
@@ -102,7 +102,7 @@
       this.AutoScroll = true;
       this.AutoScrollMinSize = new System.Drawing.Size(0, 489);
       this.BackColor = System.Drawing.SystemColors.HighlightText;
-      this.ClientSize = new System.Drawing.Size(800, 450);
+      this.ClientSize = new System.Drawing.Size(800, 494);
       this.Controls.Add(this.ObjectList);
       this.Controls.Add(this.MenuStrip);
       this.MainMenuStrip = this.MenuStrip;

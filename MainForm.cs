@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace DBLab {
@@ -49,6 +50,34 @@ namespace DBLab {
       }
     }
 
+    private void ShowObjects() {
+      foreach (SpaceObject obj in objects) {
+        if (ObjectList.RowCount < objects.Count) {
+          ObjectList.RowCount = ObjectList.RowCount + 1;
+          ObjectList.RowStyles.Add(new RowStyle(SizeType.Absolute, 10));
+        }
+        PictureBox pic = new PictureBox();
+        pic.Image = Image.FromFile(obj.Photo);
+        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+        pic.Dock = DockStyle.Fill;
+        Label name = new Label();
+        name.Text = obj.Name;
+        name.Margin = new Padding(85);
+        name.AutoSize = true;
+        name.Font = new Font("Arial", 14);
+        Button btn = new Button();
+        btn.Text = "View";
+        btn.Margin = new Padding(85);
+        btn.AutoSize = true;
+        btn.Font = new Font("Arial", 14);
+        btn.Width = 200;
+        btn.Cursor = Cursors.Hand;
+        ObjectList.Controls.Add(pic);
+        ObjectList.Controls.Add(name);
+        ObjectList.Controls.Add(btn);
+      }
+    }
+
     private void MainForm_Load(object sender, EventArgs e) {
       objects = new List<SpaceObject>();
       if (!Properties.Settings.Default.NotShow) {
@@ -56,6 +85,7 @@ namespace DBLab {
         about.ShowDialog();
       }
       LoadObjects();
+      ShowObjects();
     }
 
     private void AddObjectToolStripMenuItem_Click(object sender, EventArgs e) {
