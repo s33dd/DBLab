@@ -35,7 +35,7 @@ namespace DBLab {
           SqliteCommand command = new SqliteCommand(query, db);
           using (SqliteDataReader reader = command.ExecuteReader()) {
             reader.Read();
-            num = Int32.Parse(reader["seq"].ToString());
+            num = Int32.Parse(reader["seq"].ToString()) + 1;
           }
         }
         string newPath = $"./img/{num}.jpg";
