@@ -57,7 +57,7 @@ namespace DBLab {
       foreach (SpaceObject obj in objects) {
         if (ObjectList.RowCount < objects.Count) {
           ObjectList.RowCount = ObjectList.RowCount + 1;
-          ObjectList.RowStyles.Add(new RowStyle(SizeType.Absolute, 10));
+          ObjectList.RowStyles.Add(new RowStyle(SizeType.Absolute, 200));
         }
         PictureBox pic = new PictureBox();
         pic.Image = Image.FromFile(obj.Photo);
