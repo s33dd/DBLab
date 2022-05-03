@@ -175,6 +175,7 @@
       this.Controls.Add(this.PhotoLabel);
       this.MaximizeBox = false;
       this.Name = "AddForm";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Add object";
       this.ResumeLayout(false);
       this.PerformLayout();
