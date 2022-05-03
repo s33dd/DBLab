@@ -18,12 +18,7 @@ namespace DBLab {
       about.ShowDialog();
     }
 
-    private void MainForm_Load(object sender, EventArgs e) {
-      objects = new List<SpaceObject>();
-      if (!Properties.Settings.Default.NotShow) {
-        AboutForm about = new AboutForm();
-        about.ShowDialog();
-      }
+    private void LoadObjects() {
       using (var db = new SqliteConnection(dbRoute)) {
         try {
           db.Open();
@@ -33,12 +28,12 @@ namespace DBLab {
           Close();
           return;
         }
-        string query = "SELECT * FROM Object";
+        string query = "SELECT * FROM `Object`";
         SqliteCommand command = new SqliteCommand(query, db);
         using (SqliteDataReader reader = command.ExecuteReader()) {
           if (reader.HasRows) {
             while (reader.Read()) {
-              SpaceObject obj = new SpaceObject((int)reader["id"]);
+              SpaceObject obj = new SpaceObject(Int32.Parse(reader["id"].ToString()));
               obj.Name = reader["name"].ToString();
               obj.Description = reader["description"].ToString();
               obj.Type = reader["type"].ToString();
@@ -52,15 +47,20 @@ namespace DBLab {
           }
         }
       }
-/*      for (int i = 1; i <= 90; i++) {
-        Label name = new Label();
-        name.Text = $"asdasd{i}";
-        ObjectList.Controls.Add(name);
-        if (i % 3 == 0) {
-          ObjectList.RowCount = ObjectList.RowCount + 1;
-          ObjectList.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
-        }
-      }*/
+    }
+
+    private void MainForm_Load(object sender, EventArgs e) {
+      objects = new List<SpaceObject>();
+      if (!Properties.Settings.Default.NotShow) {
+        AboutForm about = new AboutForm();
+        about.ShowDialog();
+      }
+      LoadObjects();
+    }
+
+    private void AddObjectToolStripMenuItem_Click(object sender, EventArgs e) {
+      AddForm form = new AddForm();
+      form.ShowDialog();
     }
   }
 }

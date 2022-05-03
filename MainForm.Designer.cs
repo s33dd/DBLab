@@ -29,6 +29,7 @@
       this.SaveListOfObjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.ObjectList = new System.Windows.Forms.TableLayoutPanel();
+      this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.MenuStrip.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -47,7 +48,8 @@
       // 
       this.BaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddObjectToolStripMenuItem,
-            this.SaveListOfObjectsToolStripMenuItem});
+            this.SaveListOfObjectsToolStripMenuItem,
+            this.RefreshToolStripMenuItem});
       this.BaseToolStripMenuItem.Name = "BaseToolStripMenuItem";
       this.BaseToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
       this.BaseToolStripMenuItem.Text = "Base";
@@ -57,6 +59,7 @@
       this.AddObjectToolStripMenuItem.Name = "AddObjectToolStripMenuItem";
       this.AddObjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.AddObjectToolStripMenuItem.Text = "Add object";
+      this.AddObjectToolStripMenuItem.Click += new System.EventHandler(this.AddObjectToolStripMenuItem_Click);
       // 
       // SaveListOfObjectsToolStripMenuItem
       // 
@@ -85,6 +88,12 @@
       this.ObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.ObjectList.Size = new System.Drawing.Size(764, 41);
       this.ObjectList.TabIndex = 1;
+      // 
+      // RefreshToolStripMenuItem
+      // 
+      this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
+      this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.RefreshToolStripMenuItem.Text = "Refresh table";
       // 
       // MainForm
       // 
@@ -115,6 +124,7 @@
     private System.Windows.Forms.ToolStripMenuItem SaveListOfObjectsToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
     private System.Windows.Forms.TableLayoutPanel ObjectList;
+    private System.Windows.Forms.ToolStripMenuItem RefreshToolStripMenuItem;
   }
 }
 
