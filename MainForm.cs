@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace DBLab {
@@ -60,14 +61,18 @@ namespace DBLab {
           ObjectList.RowStyles.Add(new RowStyle(SizeType.Absolute, 200));
         }
         PictureBox pic = new PictureBox();
-        pic.Image = Image.FromFile(obj.Photo);
+        FileStream fs = new FileStream(obj.Photo, FileMode.Open);
+        pic.Image = Image.FromStream(fs);
+        fs.Close();
         pic.SizeMode = PictureBoxSizeMode.StretchImage;
         pic.Dock = DockStyle.Fill;
+
         Label name = new Label();
         name.Text = obj.Name;
         name.Margin = new Padding(85);
         name.AutoSize = true;
         name.Font = new Font("Arial", 14);
+
         Button btn = new Button();
         btn.Text = "View";
         btn.Name = $"item{obj.Id}";
@@ -77,6 +82,7 @@ namespace DBLab {
         btn.Font = new Font("Arial", 14);
         btn.Width = 200;
         btn.Cursor = Cursors.Hand;
+
         ObjectList.Controls.Add(pic);
         ObjectList.Controls.Add(name);
         ObjectList.Controls.Add(btn);
@@ -92,6 +98,7 @@ namespace DBLab {
     }
 
     private void MainForm_Load(object sender, EventArgs e) {
+      Application.ApplicationExit += new EventHandler(this.OnApplicationExit);
       objects = new List<SpaceObject>();
       if (!Properties.Settings.Default.NotShow) {
         AboutForm about = new AboutForm();
@@ -109,6 +116,16 @@ namespace DBLab {
     private void RefreshToolStripMenuItem_Click(object sender, EventArgs e) {
       LoadObjects();
       ShowObjects();
+    }
+
+    private void OnApplicationExit(object sender, EventArgs e) {
+      if (Properties.Settings.Default.ToDelete != null) {
+        foreach (var id in Properties.Settings.Default.ToDelete) {
+          string photo = $"./img/{id}.jpg";
+          File.Delete(photo);
+        }
+        Properties.Settings.Default.ToDelete.Clear();
+      }
     }
   }
 }

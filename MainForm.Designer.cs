@@ -57,20 +57,20 @@
       // AddObjectToolStripMenuItem
       // 
       this.AddObjectToolStripMenuItem.Name = "AddObjectToolStripMenuItem";
-      this.AddObjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.AddObjectToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
       this.AddObjectToolStripMenuItem.Text = "Add object";
       this.AddObjectToolStripMenuItem.Click += new System.EventHandler(this.AddObjectToolStripMenuItem_Click);
       // 
       // SaveListOfObjectsToolStripMenuItem
       // 
       this.SaveListOfObjectsToolStripMenuItem.Name = "SaveListOfObjectsToolStripMenuItem";
-      this.SaveListOfObjectsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.SaveListOfObjectsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
       this.SaveListOfObjectsToolStripMenuItem.Text = "Save list of objects";
       // 
       // RefreshToolStripMenuItem
       // 
       this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
-      this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
       this.RefreshToolStripMenuItem.Text = "Refresh table";
       this.RefreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
       // 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace DBLab {
@@ -21,7 +22,9 @@ namespace DBLab {
         SqliteCommand command = new SqliteCommand(query, db);
         using (SqliteDataReader reader = command.ExecuteReader()) {
           reader.Read();
-          Photo.Image = Image.FromFile(reader["photo"].ToString());
+          FileStream fs = new FileStream(reader["photo"].ToString(), FileMode.Open);
+          Photo.Image = Image.FromStream(fs);
+          fs.Close();
           Description.Text = reader["description"].ToString();
           Type.Text = reader["type"].ToString();
           Location.Text = reader["location"].ToString();
@@ -44,6 +47,10 @@ namespace DBLab {
         command.CommandText = query;
         command.ExecuteNonQuery();
       }
+      if (Properties.Settings.Default.ToDelete == null) {
+        Properties.Settings.Default.ToDelete = new System.Collections.Specialized.StringCollection();
+      }
+      Properties.Settings.Default.ToDelete.Add(id.ToString());
       MessageBox.Show("Object is deleted, Refresh table to see this.", "Success!");
       Close();
     }
