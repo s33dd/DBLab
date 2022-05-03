@@ -127,5 +127,23 @@ namespace DBLab {
         Properties.Settings.Default.ToDelete.Clear();
       }
     }
+
+    private void SaveListOfObjectsToolStripMenuItem_Click(object sender, EventArgs e) {
+      string title = $"Space objects:{Environment.NewLine}";
+      SaveList.Filter = "txt files (*.txt)|*.txt";
+      if (objects.Count == 0) {
+        MessageBox.Show("Nothing to save!", "Waarning!");
+        return;
+      }
+      if (SaveList.ShowDialog() == DialogResult.OK) {
+        string filePath = SaveList.FileName;
+        using (StreamWriter writer = new StreamWriter(filePath, false)) {
+          writer.WriteLine(title);
+          foreach (SpaceObject obj in objects) {
+            writer.WriteLine(obj.Name + Environment.NewLine);
+          }
+        }
+      }
+    }
   }
 }
