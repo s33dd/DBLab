@@ -67,6 +67,8 @@ namespace DBLab {
         name.Font = new Font("Arial", 14);
         Button btn = new Button();
         btn.Text = "View";
+        btn.Name = $"item{obj.Id}";
+        btn.Click += ViewButtonClick;
         btn.Margin = new Padding(85);
         btn.AutoSize = true;
         btn.Font = new Font("Arial", 14);
@@ -76,6 +78,14 @@ namespace DBLab {
         ObjectList.Controls.Add(name);
         ObjectList.Controls.Add(btn);
       }
+    }
+
+    private void ViewButtonClick(object sender, EventArgs e) {
+      Button button = (Button)sender;
+      int id = Int32.Parse(button.Name.Remove(0,4));
+      Properties.Settings.Default.ClickedId = id;
+      ViewForm form = new ViewForm();
+      form.ShowDialog();
     }
 
     private void MainForm_Load(object sender, EventArgs e) {

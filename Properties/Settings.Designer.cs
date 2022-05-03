@@ -34,5 +34,16 @@ namespace DBLab.Properties {
                 this["NotShow"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int ClickedId {
+            get {
+                return ((int)(this["ClickedId"]));
+            }
+            set {
+                this["ClickedId"] = value;
+            }
+        }
     }
 }
