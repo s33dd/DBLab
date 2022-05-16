@@ -47,15 +47,9 @@ namespace DBLab {
       type = TypeData.Text;
       location = LocationData.Text;
       description = DescriptionData.Text;
-      string query = $"INSERT INTO `Object` (photo, location, description, type, name) VALUES ('{photo}', '{location}', '{description}', '{type}', '{name}')";
-      using (var db = new SqliteConnection(dbRoute)) {
-        db.Open();
-        SqliteCommand command = new SqliteCommand();
-        command.Connection = db;
-        command.CommandText = query;
-        command.ExecuteNonQuery();
-      }
-      MessageBox.Show("Object is added, Refresh table to see it.", "Success!");
+      DB db = new DB();
+      db.Add(photo, name, type, location, description);
+      MessageBox.Show("Object is added.", "Success!");
       Close();
     }
   }

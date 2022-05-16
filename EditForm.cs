@@ -39,21 +39,16 @@ namespace DBLab {
     }
 
     private void EditForm_Load(object sender, EventArgs e) {
-      using (var db = new SqliteConnection(dbRoute)) {
-        int id = Properties.Settings.Default.ClickedId;
-        db.Open();
-        string query = $"SELECT photo, location, description, type, name FROM `Object` WHERE id = {id}";
-        SqliteCommand command = new SqliteCommand(query, db);
-        using (SqliteDataReader reader = command.ExecuteReader()) {
-          reader.Read();
-          photo = reader["photo"].ToString();
-          PhotoPath.Text = $"File: {reader["photo"].ToString()}";
-          DescriptionData.Text = reader["description"].ToString();
-          TypeData.Text = reader["type"].ToString();
-          LocationData.Text = reader["location"].ToString();
-          NameData.Text = reader["name"].ToString();
-        }
-      }
+      int id = Properties.Settings.Default.ClickedId;
+      SpaceObject obj;
+      DB db = new DB();
+      obj = db.GetById(id);
+      photo = obj.Photo;
+      PhotoPath.Text = $"File: {obj.Photo}";
+      DescriptionData.Text = obj.Description;
+      TypeData.Text = obj.Type;
+      LocationData.Text = obj.Location;
+      NameData.Text = obj.Name;
     }
 
     private void UpdateBtn_Click(object sender, EventArgs e) {
@@ -67,15 +62,9 @@ namespace DBLab {
       type = TypeData.Text;
       location = LocationData.Text;
       description = DescriptionData.Text;
-      string query = $"UPDATE `Object` SET photo = '{photo}', location = '{location}', description = '{description}', type = '{type}', name = '{name}' WHERE id = {id}";
-      using (var db = new SqliteConnection(dbRoute)) {
-        db.Open();
-        SqliteCommand command = new SqliteCommand();
-        command.Connection = db;
-        command.CommandText = query;
-        command.ExecuteNonQuery();
-      }
-      MessageBox.Show("Object is updated, Refresh table to see it.", "Success!");
+      DB db = new DB();
+      db.UpdateById(id, photo, name, type, location, description);
+      MessageBox.Show("Object is updated.", "Success!");
       Close();
     }
   }

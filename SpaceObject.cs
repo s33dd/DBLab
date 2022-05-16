@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DBLab {
-  internal class SpaceObject {
+  public class SpaceObject {
     private int id;
     private string name;
     private string description;

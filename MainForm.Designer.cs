@@ -58,21 +58,21 @@
       // AddObjectToolStripMenuItem
       // 
       this.AddObjectToolStripMenuItem.Name = "AddObjectToolStripMenuItem";
-      this.AddObjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.AddObjectToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
       this.AddObjectToolStripMenuItem.Text = "Add object";
       this.AddObjectToolStripMenuItem.Click += new System.EventHandler(this.AddObjectToolStripMenuItem_Click);
       // 
       // SaveListOfObjectsToolStripMenuItem
       // 
       this.SaveListOfObjectsToolStripMenuItem.Name = "SaveListOfObjectsToolStripMenuItem";
-      this.SaveListOfObjectsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.SaveListOfObjectsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
       this.SaveListOfObjectsToolStripMenuItem.Text = "Save list of objects";
       this.SaveListOfObjectsToolStripMenuItem.Click += new System.EventHandler(this.SaveListOfObjectsToolStripMenuItem_Click);
       // 
       // RefreshToolStripMenuItem
       // 
       this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
-      this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
       this.RefreshToolStripMenuItem.Text = "Refresh table";
       this.RefreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
       // 
@@ -110,6 +110,7 @@
       this.MainMenuStrip = this.MenuStrip;
       this.Name = "MainForm";
       this.Text = "DBLab";
+      this.Activated += new System.EventHandler(this.MainForm_Activated);
       this.Load += new System.EventHandler(this.MainForm_Load);
       this.MenuStrip.ResumeLayout(false);
       this.MenuStrip.PerformLayout();
