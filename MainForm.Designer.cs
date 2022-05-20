@@ -25,10 +25,12 @@
     private void InitializeComponent() {
       this.MenuStrip = new System.Windows.Forms.MenuStrip();
       this.BaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.AddObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.SaveListOfObjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.ObjectList = new System.Windows.Forms.GroupBox();
+      this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.ObjectList = new System.Windows.Forms.TableLayoutPanel();
+      this.SaveList = new System.Windows.Forms.SaveFileDialog();
       this.MenuStrip.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -40,17 +42,39 @@
             this.AboutToolStripMenuItem});
       this.MenuStrip.Location = new System.Drawing.Point(0, 0);
       this.MenuStrip.Name = "MenuStrip";
-      this.MenuStrip.Size = new System.Drawing.Size(800, 24);
+      this.MenuStrip.Size = new System.Drawing.Size(945, 24);
       this.MenuStrip.TabIndex = 0;
       // 
       // BaseToolStripMenuItem
       // 
       this.BaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddObjectToolStripMenuItem,
-            this.SaveListOfObjectsToolStripMenuItem});
+            this.SaveListOfObjectsToolStripMenuItem,
+            this.RefreshToolStripMenuItem});
       this.BaseToolStripMenuItem.Name = "BaseToolStripMenuItem";
       this.BaseToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
       this.BaseToolStripMenuItem.Text = "Base";
+      // 
+      // AddObjectToolStripMenuItem
+      // 
+      this.AddObjectToolStripMenuItem.Name = "AddObjectToolStripMenuItem";
+      this.AddObjectToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+      this.AddObjectToolStripMenuItem.Text = "Add object";
+      this.AddObjectToolStripMenuItem.Click += new System.EventHandler(this.AddObjectToolStripMenuItem_Click);
+      // 
+      // SaveListOfObjectsToolStripMenuItem
+      // 
+      this.SaveListOfObjectsToolStripMenuItem.Name = "SaveListOfObjectsToolStripMenuItem";
+      this.SaveListOfObjectsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+      this.SaveListOfObjectsToolStripMenuItem.Text = "Save list of objects";
+      this.SaveListOfObjectsToolStripMenuItem.Click += new System.EventHandler(this.SaveListOfObjectsToolStripMenuItem_Click);
+      // 
+      // RefreshToolStripMenuItem
+      // 
+      this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
+      this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+      this.RefreshToolStripMenuItem.Text = "Refresh table";
+      this.RefreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
       // 
       // AboutToolStripMenuItem
       // 
@@ -59,37 +83,34 @@
       this.AboutToolStripMenuItem.Text = "About";
       this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
       // 
-      // AddObjectToolStripMenuItem
-      // 
-      this.AddObjectToolStripMenuItem.Name = "AddObjectToolStripMenuItem";
-      this.AddObjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-      this.AddObjectToolStripMenuItem.Text = "Add object";
-      // 
-      // SaveListOfObjectsToolStripMenuItem
-      // 
-      this.SaveListOfObjectsToolStripMenuItem.Name = "SaveListOfObjectsToolStripMenuItem";
-      this.SaveListOfObjectsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-      this.SaveListOfObjectsToolStripMenuItem.Text = "Save list of objects";
-      // 
       // ObjectList
       // 
-      this.ObjectList.Location = new System.Drawing.Point(13, 28);
+      this.ObjectList.AutoSize = true;
+      this.ObjectList.ColumnCount = 3;
+      this.ObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+      this.ObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.ObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.ObjectList.Location = new System.Drawing.Point(12, 27);
       this.ObjectList.Name = "ObjectList";
-      this.ObjectList.Size = new System.Drawing.Size(775, 410);
+      this.ObjectList.RowCount = 1;
+      this.ObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+      this.ObjectList.Size = new System.Drawing.Size(886, 200);
       this.ObjectList.TabIndex = 1;
-      this.ObjectList.TabStop = false;
       // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.AutoScroll = true;
+      this.AutoScrollMinSize = new System.Drawing.Size(0, 480);
       this.BackColor = System.Drawing.SystemColors.HighlightText;
-      this.ClientSize = new System.Drawing.Size(800, 450);
+      this.ClientSize = new System.Drawing.Size(945, 494);
       this.Controls.Add(this.ObjectList);
       this.Controls.Add(this.MenuStrip);
       this.MainMenuStrip = this.MenuStrip;
       this.Name = "MainForm";
       this.Text = "DBLab";
+      this.Activated += new System.EventHandler(this.MainForm_Activated);
       this.Load += new System.EventHandler(this.MainForm_Load);
       this.MenuStrip.ResumeLayout(false);
       this.MenuStrip.PerformLayout();
@@ -105,7 +126,9 @@
     private System.Windows.Forms.ToolStripMenuItem AddObjectToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem SaveListOfObjectsToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
-    private System.Windows.Forms.GroupBox ObjectList;
+    private System.Windows.Forms.TableLayoutPanel ObjectList;
+    private System.Windows.Forms.ToolStripMenuItem RefreshToolStripMenuItem;
+    private System.Windows.Forms.SaveFileDialog SaveList;
   }
 }
 

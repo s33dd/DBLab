@@ -34,5 +34,27 @@ namespace DBLab.Properties {
                 this["NotShow"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int ClickedId {
+            get {
+                return ((int)(this["ClickedId"]));
+            }
+            set {
+                this["ClickedId"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection ToDelete {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["ToDelete"]));
+            }
+            set {
+                this["ToDelete"] = value;
+            }
+        }
     }
 }
